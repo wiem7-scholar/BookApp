@@ -1,0 +1,32 @@
+<br>
+<br>
+<h2>Book Details</h2>
+<hr/>
+<div *ngIf="book">
+  <div>
+    <label><b>Id: </b></label> {{book.id}}
+  </div>
+  <div>
+    <label><b>Name: </b></label> {{book.name}}
+  </div>
+ 
+  <div>
+    <label><b>Author:  </b></label> {{book.author}}
+  </div>
+  <div>
+    <label><b>Isbn : </b></label> {{book.isbn}}
+  </div>
+  <div>
+    <label><b>Published : </b></label> {{book.published}}
+  </div>
+  <div>
+    <label><b>Publisher:</b></label> {{book.publisher}}
+  </div>
+  <div>
+    <label><b>Genre:</b></label> {{book.genre}}
+  </div>
+
+</div>
+<br>
+<br>
+<button (click)="goToList()" class="btn btn-primary">Back to books List</button> <br>

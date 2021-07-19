@@ -1,0 +1,120 @@
+
+<div class="row">
+  <div class="col-12">
+    <div class="content layer">
+      <div class="search-results">
+        <div style="margin-left:10px; margin-top:10px;">
+        <div id="search-info">{{books?.length}} results found</div>
+      </div>
+      <div class="form-group row"></div>
+      <div class="form-group row">
+        <label for="search" class="col-sm-2 col-form-label" style="text-align:right;">Search</label>
+        <div class="col-sm-6">
+          <input type="text" [(ngModel)]="searchValue"class="form-control" id="search"/>
+        </div>
+      </div>
+      
+      <div class="panel panel-primary">
+        <div class="panel-heading"></div>
+
+        <div class="panel-body">
+          
+          <table class="table table-striped" *ngIf="!show">
+           
+
+          
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr *ngFor="let book of books | paginate:{itemsPerPage:p1, currentPage: p}| search: searchValue">
+               
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.genre}}</td>
+
+                <td>
+                  <button id="btnAdjust" (click)="BookDetails(book.id)" class="btn btn-info">Details</button>
+                  <button id="btnAdjust" (click)="deleteBook(book.id)" class="btn btn-danger">Delete</button>
+                  <button id="btnAdjust" (click)="updateBook(book.id)" class="btn btn-secondary">Update</button>
+
+                </td>
+             
+              </tr>
+              
+         
+            
+           
+            </tbody>
+          </table>
+
+          <table class="table table-striped" *ngIf="show">
+           
+
+          
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+         
+              <tr  *ngFor="let book of books | paginate:{itemsPerPage:4, currentPage: p}| search: searchValue">
+                
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.genre}}</td>
+
+                <td>
+                  <button id="btnAdjust" (click)="BookDetails(book.id)" class="btn btn-info">Details</button>
+                  <button id="btnAdjust" (click)="deleteBook(book.id)" class="btn btn-danger">Delete</button>
+                  <button id="btnAdjust" (click)="updateBook(book.id)" class="btn btn-secondary">Update</button>
+
+                </td>
+              
+              </tr>
+           
+            </tbody>
+          </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+          
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <pagination-controls 
+(pageChange)="p = $event" 
+class="float-right">
+</pagination-controls>
+<form  #f= "ngForm" (ngSubmit) = "onSubmit(f)" >
+<input name = "message"  ngModel type="number" min="5" max="10" value="5" >
+<button  type="submit" class="btn btn-secondary">Select rows Number</button>
+</form>
+
+</div>

@@ -1,0 +1,18 @@
+h1{
+    text-align: center;
+      text-shadow: 3px 2px #000;
+      letter-spacing: 5px;
+
+}
+
+.wrapper{
+  background: url("https://www.comunidad.madrid/sites/default/files/styles/aspect_ratio_16_9_desktop/public/libreria.jpg?itok=mSYFj1DL&timestamp=1608975556") ;
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
